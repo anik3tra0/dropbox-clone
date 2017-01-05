@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= flash_messages if show_layout_flash? %>
 <%= yield %>
 
 </body>

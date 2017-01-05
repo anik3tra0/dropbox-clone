@@ -9,6 +9,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'shrine', '~> 2.5'
+gem 'devise', '~> 4.2'
+gem 'bootstrap', '~> 4.0.0.alpha5'
+gem 'rails-assets-tether', '>= 1.1.0', source: 'https://rails-assets.org'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug'
