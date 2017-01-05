@@ -1,3 +1,4 @@
 class Upload < ActiveRecord::Base
-  belongs_to :uploadable, polymorphic: true
+	include FileUploader[:upload]
+	belongs_to :uploadable, polymorphic: true
 end
