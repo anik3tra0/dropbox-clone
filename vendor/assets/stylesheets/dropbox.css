@@ -9,8 +9,8 @@ body {
 .header_wrapper { 
 	width: 880px; 
 	margin: 0 auto; 
-	overflow:hidden; 
-	padding:20px 0; 
+	overflow: hidden; 
+	padding: 20px 0; 
 } 
 .logo a{ 
 	color: #007ee5; 
@@ -18,7 +18,7 @@ body {
 	font-size: 48px; 
 	font-weight: bold; 
 	text-shadow: 2px 2px 2px #FFFFFF; 
-	text-decoration:none; 
+	text-decoration: none; 
 } 
 .container { 
   width: 800px; 
@@ -29,9 +29,50 @@ body {
 }
 
 #login_user_status { 
-	float:right;     
+	float: right;     
 }
 
 .fa-dropbox {
 	color: #007ee5;
+}
+
+.asset_list_header, .asset_list, .asset_details { 
+	width: 800px; 
+	font-weight: bold; 
+	font-size: 12px; 
+	overflow: hidden; 
+} 
+
+.file_name_header, .file_name { 
+	width: 350px; 
+	float: left; 
+	padding-left: 20px; 
+} 
+
+.file_size_header, .file_size { 
+	width: 100px; 
+	float: left; 
+} 
+
+.file_last_updated_header, .file_last_updated { 
+	width: 150px; 
+	float: left; 
+} 
+
+.asset_list { 
+	padding: 20px 0; 
+} 
+
+.asset_details { 
+	font-weight: normal; 
+	height: 25px; 
+	line-height: 25px; 
+	width: 790px; 
+	color: #4F4F4F; 
+} 
+  
+.asset_details a, .asset_details a:visited { 
+	text-decoration: none; 
+	color: #1D96EF; 
+	font-size: 12px; 
 }
