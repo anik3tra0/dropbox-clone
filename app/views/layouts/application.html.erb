@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DropboxClone</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= flash_messages if show_layout_flash? %>
-<%= yield %>
-
-</body>
+	<head>
+		<title>Dropbox | <%= content_for?(:title) ? yield(:title) : "File-sharing web app" %></title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<%= flash_messages if show_layout_flash? %>
+		<div class="header_wrapper"> 
+			<div class="logo"> 
+			  <%= link_to "DropBox", root_url %> 
+			</div> 
+			<div id="login_user_status"> 
+		    	<% if user_signed_in? %> 
+		        	<%= current_user.email  %>  
+		        	| 
+		        	<%= link_to "Sign out", destroy_user_session_path %> 
+			    <% else %> 
+		        	<em>Not Signed in.</em> 
+		        	<%= link_to 'Sign in', new_user_session_path%> 
+		        	or 
+			      <%= link_to 'Sign up', new_user_registration_path%> 
+			   <% end %> 
+			</div>
+		</div>
+		<div class="container">
+			<%= yield %>	
+		</div>
+	</body>
 </html>
