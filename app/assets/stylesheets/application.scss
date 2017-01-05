@@ -18,3 +18,13 @@
 @import "font-awesome";
 @import "devise_bootstrap_views";
 @import "dropbox";
+
+.flash-messages {
+	text-align: center;
+	font-size: 1.3rem;
+}
+
+.image-dimensions {
+	width: 10em;
+	height: auto;
+}

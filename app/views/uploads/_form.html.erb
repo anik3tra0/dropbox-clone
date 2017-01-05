@@ -18,7 +18,6 @@
       <div class="form-group">
         <%= f.hidden_field :user_id, value: @current_user.id %>
         <%= image_tag f.object.upload_url, class: 'rounded mx-auto d-block' if f.object.upload_url %>
-        <%= f.hidden_field :user_id, value: f.object.cached_upload_data %>
         <%= f.file_field :upload, class: 'form-control' %>
       </div>
       

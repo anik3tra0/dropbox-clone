@@ -1,9 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Upload data:</strong>
-  <%= image_tag @upload.upload_url, class: 'rounded mx-auto d-block' %>
-</p>
+<%= image_tag @upload.upload_url, class: 'rounded mx-auto d-block' %>
+<br>
+<p class="text-center"><%= @upload.file_name %></p>
 
 <p>
   <strong>Uploaded By: </strong>

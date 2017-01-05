@@ -3,7 +3,7 @@ module LayoutHelper
       @layout_flash = opts.fetch(:layout_flash) { true }
       capture do
          flash.each do |name, msg|
-            concat content_tag(:div, msg, id: "flash-#{name}", class: "flash-messages")
+            concat content_tag(:div, msg, id: "flash-#{name}", class: "flash-messages alert-warning")
          end
       end
    end

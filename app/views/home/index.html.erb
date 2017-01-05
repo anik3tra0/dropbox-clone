@@ -7,17 +7,18 @@
     <div class="file_size_header">Size</div>
     <div class="file_last_updated_header">Modified</div>
   </div>
-<div class="asset_list">
-  <div id="menu"> 
-    <ul id= "top_menu">     
-      <li><%= link_to "Upload", new_asset_path %></li> 
-    </ul> 
+  <div class="asset_list">
+    <div id="menu"> 
+      <ul id= "top_menu">     
+        <li><%= link_to "Upload", new_upload_path %></li> 
+      </ul> 
+    </div>
+    <% @uploads.each do |upload| %> 
+      <div class="asset_details"> 
+        <div class="file_name"><%= link_to upload.file_name, upload_path(upload) %></div> 
+        <div class="file_size"><%= number_to_human_size(upload.upload.metadata["size"]) %></div> 
+        <div class="file_last_updated"><%= time_ago_in_words(upload.updated_at) %> ago</div> 
+      </div> 
+    <% end %>
   </div>
-  <% @uploads.each do |upload| %> 
-    <div class="asset_details"> 
-      <div class="file_name"><%= link_to upload.file_name, upload.upload.download.path %></div> 
-      <div class="file_size"><%= number_to_human_size(upload.upload.metadata["size"]) %></div> 
-      <div class="file_last_updated"><%= time_ago_in_words(upload.updated_at) %> ago</div> 
-    </div> 
-  <% end %>
 <% end %>
