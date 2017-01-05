@@ -9,8 +9,8 @@
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, class: 'form-control' %>
       </div>
-
-      <%= f.submit t('.send_me_reset_password_instructions', default: 'Send me reset password instructions'), class: 'btn btn-primary' %>
+      
+      <%= f.button 'Send Me Reset Password Instructions', class: 'btn btn-primary btn-lg', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating User..."} %>
     <% end %>
   </div>
 </div>

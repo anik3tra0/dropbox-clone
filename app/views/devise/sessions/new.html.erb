@@ -19,7 +19,7 @@
           <% end %>
         </div>
       <% end %>
-      <%= f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-primary' %>
+      <%= f.button 'Sign In', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing In..."} %>
     <% end %>
   </div>
 </div>

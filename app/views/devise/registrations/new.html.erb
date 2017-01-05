@@ -6,8 +6,12 @@
   <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
       <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        <%= f.email_field :email, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :password %>
@@ -17,7 +21,7 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
-      <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
+      <%= f.button 'Sign Up', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating User..."} %>
     <% end %>
   </div>
 </div>

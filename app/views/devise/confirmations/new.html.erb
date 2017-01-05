@@ -9,8 +9,8 @@
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, class: "form-control"  %>
       </div>
-
-      <%= f.submit t('.resend_confirmation_instructions', default: 'Resend confirmation instructions'), class: 'btn btn-primary' %>
+      
+      <%= f.button 'Resend Confirmation Instructions', class: 'btn btn-lg btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Sending..."} %>
     <% end %>
   </div>
 </div>

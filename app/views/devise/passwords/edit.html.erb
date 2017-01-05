@@ -16,8 +16,8 @@
         <%= f.label :password_confirmation, t('.confirm_new_password', default: 'Confirm new password') %>
         <%= f.password_field :password_confirmation, class: 'form-control'  %>
       </div>
-
-      <%= f.submit t('.change_my_password', default: 'Change my password'), class: 'btn btn-primary' %>
+      
+      <%= f.button 'Change Password', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Changing Password..."} %>
     <% end %>
   </div>
 </div>

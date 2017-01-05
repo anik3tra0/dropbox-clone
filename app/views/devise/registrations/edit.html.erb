@@ -21,7 +21,7 @@
         <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', default: 'we need your current password to confirm your changes') %>)</i>
         <%= f.password_field :current_password, class: 'form-control' %>
       </div>
-      <%= f.submit t('.update', default: 'Update'), class: 'btn btn-primary' %>
+      <%= f.button 'Update', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating..."} %>
     <% end %>
   </div>
 </div>
