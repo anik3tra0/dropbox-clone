@@ -76,3 +76,37 @@ body {
 	color: #1D96EF; 
 	font-size: 12px; 
 }
+
+#menu { 
+	width:800px; 
+	padding:0 20px; 
+	margin:20px auto ; 
+	overflow:hidden; 
+}
+
+#menu ul{ 
+	padding:0; 
+	margin:0; 
+}
+
+#menu ul li { 
+	list-style:none; 
+	float:left; 
+	display:block; 
+	margin-right:10px; 
+}
+
+#menu ul li a, #menu ul li a:visited{ 
+	display:block; 
+	padding:0 15px; 
+	line-height:25px; 
+	text-decoration:none; 
+	color:#45759F; 
+	background:#EFF8FF; 
+	border:1px solid #CFEBFF; 
+}
+
+#menu ul li a:hover, #menu ul li a:active{ 
+	background:#DFF1FF; 
+	border:1px solid #AFDDFF; 
+}
