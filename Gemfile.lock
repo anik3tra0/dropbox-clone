@@ -89,6 +89,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    modernizr-rails (2.7.1)
     multi_json (1.12.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -173,6 +174,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  modernizr-rails
   pg (~> 0.15)
   rails (= 4.2.7.1)
   rails-assets-tether (>= 1.1.0)!

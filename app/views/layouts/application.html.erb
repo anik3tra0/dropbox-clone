@@ -3,14 +3,18 @@
 	<head>
 		<title>Dropbox | <%= content_for?(:title) ? yield(:title) : "File-sharing web app" %></title>
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag :modernizr %>
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
 		<%= flash_messages if show_layout_flash? %>
 		<div class="header_wrapper"> 
-			<div class="logo"> 
-			  <%= link_to "DropBox", root_url %> 
+			<div class="logo">
+				<%= link_to root_path do %>
+					<i class="fa fa-dropbox" aria-hidden="true"></i>
+					DropBox
+				<% end %>
 			</div> 
 			<div id="login_user_status"> 
 		    	<% if user_signed_in? %> 

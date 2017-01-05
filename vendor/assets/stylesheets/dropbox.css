@@ -13,7 +13,7 @@ body {
 	padding:20px 0; 
 } 
 .logo a{ 
-	color: #338DCF; 
+	color: #007ee5; 
 	float: left; 
 	font-size: 48px; 
 	font-weight: bold; 
@@ -29,5 +29,9 @@ body {
 }
 
 #login_user_status { 
-    float:right;     
+	float:right;     
+}
+
+.fa-dropbox {
+	color: #007ee5;
 }
