@@ -12,4 +12,8 @@ class Upload < ActiveRecord::Base
 		end
 	end
 
+	def download_file
+		upload.download
+	end
+
 end

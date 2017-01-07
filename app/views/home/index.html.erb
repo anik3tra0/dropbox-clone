@@ -34,7 +34,7 @@
                 <%= link_to "Rename", rename_folder_path(folder) %>
               </div> 
               <div class="delete"> 
-                <%= link_to "Delete", folder, confirm: 'Are you sure to delete the folder and all of its contents?', method: :delete %>
+                <%= link_to "Delete", folder, data: {confirm: 'Are you sure to delete the folder and all of its contents?'}, method: :delete %>
               </div> 
             </div>
         </div> 
@@ -47,10 +47,10 @@
         <div class="file_last_updated"><%= time_ago_in_words(upload.updated_at) %> ago</div>
         <div class="actions"> 
           <div class="download"> 
-            <%= link_to "Download", upload.download %>
+            <%= link_to "Download", upload.upload_url, download: upload.upload_url %>
           </div> 
           <div class="delete"> 
-            <%= link_to "Delete", upload, confirm: 'Are you sure?', method: :delete %> 
+            <%= link_to "Delete", upload, data: {confirm: 'Are you sure?'}, method: :delete %> 
           </div> 
         </div> 
       </div> 

@@ -121,12 +121,11 @@ body {
    text-decoration: none; 
 }
 
-.actions { 
-    float: right; 
-    font-size: 11px; 
+.actions {
+	font-size: 11px; 
 } 
 .share, .rename, .download, .delete{ 
-    float: left;  
+	float: left;  
 } 
 .asset_details .share a,.asset_details .rename a,.asset_details .download a,.asset_details .delete a{ 
 	border: 1px solid #CFE9FF; 
@@ -134,6 +133,7 @@ body {
 	margin-left: 5px; 
 	padding: 0 2px; 
 } 
+
 .asset_details .share a:hover,.asset_details .rename a:hover,.asset_details .download a:hover,.asset_details .delete a:hover{ 
 	border: 1px solid #8FCDFF; 
 } 

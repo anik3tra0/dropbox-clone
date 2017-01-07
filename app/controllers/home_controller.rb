@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   def index
   	if user_signed_in? 
   		@folders = current_user.folders.order('name desc')
-      @uploads = current_user.uploads.where("folder_id is NULL").order('created_at desc')       
+      @uploads = current_user.uploads.where('folder_id IS NULL').order('created_at desc')       
  	  end
   end
 
