@@ -2,21 +2,28 @@
   <h1>Welcome to ShareBox</h1> 
   <p>File sharing web application you can't ignore.</p>    
 <% else %>
+  <div id="menu"> 
+    <ul id= "top_menu">     
+      <% if @current_folder %> 
+        <li><%= link_to "Upload", new_sub_file_path(@current_folder) %></li> 
+        <li><%= link_to "New Folder", new_sub_folder_path(@current_folder) %></li> 
+      <% else %> 
+        <li><%= link_to "Upload", new_upload_path %></li> 
+        <li><%= link_to "New Folder", new_folder_path %></li> 
+      <% end %>
+    </ul> 
+  </div>
+  <%= render 'breadcrumbs' %>
   <div class="asset_list_header"> 
     <div class="file_name_header">File Name</div>
     <div class="file_size_header">Size</div>
     <div class="file_last_updated_header">Modified</div>
   </div>
   <div class="asset_list">
-    <div id="menu"> 
-      <ul id= "top_menu">     
-        <li><%= link_to "Upload", new_upload_path %></li> 
-      </ul> 
-    </div>
     <!-- Listing Folders -->
     <% @folders.each do |folder| %> 
         <div class="asset_details folder"> 
-            <div class="file_name"><i class="fa fa-folder-o" aria-hidden="true"></i> <%= link_to folder.name, folder_path(folder) %></div> 
+            <div class="file_name"><i class="fa fa-folder-o" aria-hidden="true"></i> <%= link_to folder.name, browse_path(folder) %></div> 
             <div class="file_size"> - </div> 
             <div class="file_last_updated"> - </div> 
         </div> 

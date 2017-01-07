@@ -14,7 +14,11 @@ class UploadsController < ApplicationController
 
   # GET /uploads/new
   def new
-    @upload = current_user.uploads.new
+    @upload = current_user.uploads.build
+    if params[:folder_id] #if we want to upload a file inside another folder
+      @current_folder = current_user.folders.find(params[:folder_id]) 
+      @upload.folder_id = @current_folder.id
+    end
   end
 
   # GET /uploads/1/edit
@@ -24,16 +28,16 @@ class UploadsController < ApplicationController
   # POST /uploads
   # POST /uploads.json
   def create
-    @upload = current_user.uploads.new(upload_params)
-
-    respond_to do |format|
-      if @upload.save
-        format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
-        format.json { render :show, status: :created, location: @upload }
+    @upload = current_user.uploads.build(upload_params)
+    if @upload.save 
+      flash[:notice] = "Successfully uploaded the file."
+      if @upload.folder #checking if we have a parent folder for this file 
+        redirect_to browse_path(@upload.folder)  #then we redirect to the parent folder 
       else
-        format.html { render :new }
-        format.json { render json: @upload.errors, status: :unprocessable_entity }
-      end
+        redirect_to root_url 
+      end      
+    else
+     render 'new'
     end
   end
 

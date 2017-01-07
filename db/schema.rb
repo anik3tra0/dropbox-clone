@@ -27,22 +27,19 @@ ActiveRecord::Schema.define(version: 20170107061216) do
   add_index "folders", ["parent_id"], name: "index_folders_on_parent_id", using: :btree
   add_index "folders", ["user_id"], name: "index_folders_on_user_id", using: :btree
 
-  create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "uploads", force: :cascade do |t|
     t.text     "upload_data"
     t.integer  "user_id"
     t.integer  "uploadable_id"
     t.string   "uploadable_type"
+    t.integer  "folder_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
+  add_index "uploads", ["folder_id"], name: "index_uploads_on_folder_id", using: :btree
   add_index "uploads", ["uploadable_type", "uploadable_id"], name: "index_uploads_on_uploadable_type_and_uploadable_id", using: :btree
+  add_index "uploads", ["user_id"], name: "index_uploads_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

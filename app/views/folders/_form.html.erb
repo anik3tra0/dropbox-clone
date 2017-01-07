@@ -11,11 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <%= f.hidden_field :parent_id %>
+  <div class="form-group">
+    <%= f.button 'Submit', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."} %>
   </div>
 <% end %>
