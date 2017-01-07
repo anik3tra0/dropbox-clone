@@ -19,6 +19,7 @@ gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'rails-assets-tether', '>= 1.1.0', source: 'https://rails-assets.org'
 gem 'font-awesome-rails'
 gem 'devise-bootstrap-views'
+gem 'pry-rails'
 
 group :development, :test do
   gem 'byebug'

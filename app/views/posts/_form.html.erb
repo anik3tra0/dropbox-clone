@@ -1,0 +1,30 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  
+  <%= f.fields_for(@upload) do |o| %>
+    <div class="field">
+      <%= o.hidden_field :user_id, value: current_user.id %>
+      <%= image_tag o.object.upload_url, class: 'rounded mx-auto d-block' if o.object.upload_url %>
+      <%= o.file_field :upload, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.button 'Submit', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."} %>
+  </div>
+<% end %>
