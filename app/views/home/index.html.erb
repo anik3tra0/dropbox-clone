@@ -31,7 +31,7 @@
                 <%= link_to "Share" %> 
               </div> 
               <div class="rename"> 
-                <%= link_to "Rename" %> 
+                <%= link_to "Rename", rename_folder_path(folder) %>
               </div> 
               <div class="delete"> 
                 <%= link_to "Delete", folder, confirm: 'Are you sure to delete the folder and all of its contents?', method: :delete %>

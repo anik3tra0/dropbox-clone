@@ -28,6 +28,7 @@ class FoldersController < ApplicationController
 
   # GET /folders/1/edit
   def edit
+    @current_folder = @folder.parent
   end
 
   # POST /folders

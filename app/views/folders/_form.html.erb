@@ -17,6 +17,10 @@
   </div>
   <%= f.hidden_field :parent_id %>
   <div class="form-group">
-    <%= f.button 'Submit', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Submitting..."} %>
+    <% if @folder.new_record? %>
+      <%= f.button 'Create Folder', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating Folder..."} %>
+    <% else %>
+      <%= f.button 'Rename Folder', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Renaming Folder..."} %>
+    <% end %>
   </div>
 <% end %>
