@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   has_many :uploads
+  has_many :folders
 end
