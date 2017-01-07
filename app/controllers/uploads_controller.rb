@@ -58,10 +58,16 @@ class UploadsController < ApplicationController
   # DELETE /uploads/1
   # DELETE /uploads/1.json
   def destroy
-    @upload.destroy
-    respond_to do |format|
-      format.html { redirect_to uploads_url, notice: 'Upload was successfully destroyed.' }
-      format.json { head :no_content }
+    @upload = current_user.uploads.find(params[:id]) 
+    @parent_folder = @upload.folder #grabbing the parent folder before deleting the record 
+    @upload.destroy 
+    flash[:notice] = "Successfully deleted the file."
+    
+    #redirect to a relevant path depending on the parent folder 
+    if @parent_folder
+     redirect_to browse_path(@parent_folder) 
+    else
+     redirect_to root_url 
     end
   end
 

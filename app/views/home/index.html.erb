@@ -25,7 +25,18 @@
         <div class="asset_details folder"> 
             <div class="file_name"><i class="fa fa-folder-o" aria-hidden="true"></i> <%= link_to folder.name, browse_path(folder) %></div> 
             <div class="file_size"> - </div> 
-            <div class="file_last_updated"> - </div> 
+            <div class="file_last_updated"> - </div>
+            <div class="actions"> 
+              <div class="share"> 
+                <%= link_to "Share" %> 
+              </div> 
+              <div class="rename"> 
+                <%= link_to "Rename" %> 
+              </div> 
+              <div class="delete"> 
+                <%= link_to "Delete", folder, confirm: 'Are you sure to delete the folder and all of its contents?', method: :delete %>
+              </div> 
+            </div>
         </div> 
     <% end %> 
     <!-- Listing Files -->
@@ -33,7 +44,15 @@
       <div class="asset_details file"> 
         <div class="file_name"><i class="fa fa-file-o" aria-hidden="true"></i> <%= link_to upload.file_name, upload_path(upload) %></div> 
         <div class="file_size"><%= number_to_human_size(upload.upload.metadata["size"]) %></div> 
-        <div class="file_last_updated"><%= time_ago_in_words(upload.updated_at) %> ago</div> 
+        <div class="file_last_updated"><%= time_ago_in_words(upload.updated_at) %> ago</div>
+        <div class="actions"> 
+          <div class="download"> 
+            <%= link_to "Download", upload.download %>
+          </div> 
+          <div class="delete"> 
+            <%= link_to "Delete", upload, confirm: 'Are you sure?', method: :delete %> 
+          </div> 
+        </div> 
       </div> 
     <% end %>
   </div>

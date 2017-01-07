@@ -97,26 +97,53 @@ body {
 }
 
 #menu ul li a, #menu ul li a:visited{ 
-	display:block; 
-	padding:0 15px; 
-	line-height:25px; 
-	text-decoration:none; 
-	color:#45759F; 
-	background:#EFF8FF; 
-	border:1px solid #CFEBFF; 
+	display: block; 
+	padding: 0 15px; 
+	line-height: 25px; 
+	text-decoration: none; 
+	color: #45759F; 
+	background: #EFF8FF; 
+	border: 1px solid #CFEBFF; 
 }
 
 #menu ul li a:hover, #menu ul li a:active{ 
-	background:#DFF1FF; 
-	border:1px solid #AFDDFF; 
+	background: #DFF1FF; 
+	border: 1px solid #AFDDFF; 
 }
 
 .breadcrumbs { 
-   margin:10px 0; 
-   font-weight:bold; 
+   margin: 10px 0; 
+   font-weight: bold; 
 } 
 
 .breadcrumbs a { 
-   color:#1D96EF; 
-   text-decoration:none; 
+   color: #1D96EF; 
+   text-decoration: none; 
+}
+
+.actions { 
+    float: right; 
+    font-size: 11px; 
+} 
+.share, .rename, .download, .delete{ 
+    float: left;  
+} 
+.asset_details .share a,.asset_details .rename a,.asset_details .download a,.asset_details .delete a{ 
+	border: 1px solid #CFE9FF; 
+	font-size: 11px; 
+	margin-left: 5px; 
+	padding: 0 2px; 
+} 
+.asset_details .share a:hover,.asset_details .rename a:hover,.asset_details .download a:hover,.asset_details .delete a:hover{ 
+	border: 1px solid #8FCDFF; 
+} 
+  
+.asset_details .delete a{ 
+	color: #BF0B12; 
+	border: 1px solid #FFCFD1; 
+} 
+  
+.asset_details .delete a:hover{ 
+	color: #BF0B12; 
+	border: 1px solid #FF8F93; 
 }
