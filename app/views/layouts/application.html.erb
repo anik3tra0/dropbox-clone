@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Dropbox | <%= content_for?(:title) ? yield(:title) : "File-sharing web app" %></title>
+		<title>SyookBox | <%= content_for?(:title) ? yield(:title) : "File Manager" %></title>
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	  <%= javascript_include_tag :modernizr %>
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -12,10 +12,11 @@
 		<div class="header_wrapper"> 
 			<div class="logo">
 				<%= link_to root_path do %>
-					<i class="fa fa-dropbox" aria-hidden="true"></i>
-					DropBox
+					<img src="https://s3-ap-southeast-1.amazonaws.com/syookassets/rootassets/logo_52x44.png" alt="SyookBox">
+					<!-- <i class="fa fa-dropbox" aria-hidden="true"></i> -->
+					SyookBox
 				<% end %>
-			</div> 
+			</div>
 			<div id="login_user_status"> 
 		    	<% if user_signed_in? %> 
 		        	<%= current_user.email  %>  

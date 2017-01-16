@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'browse/:folder_id/rename' => 'folders#edit', :as => 'rename_folder'
   mount FileUploader::UploadEndpoint => '/files/upload'
   resources :uploads
+  post '/json_upload' => 'uploads#json_upload', format: :json
   devise_for :users
   root 'home#index'
 end

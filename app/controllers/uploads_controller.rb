@@ -12,6 +12,11 @@ class UploadsController < ApplicationController
   def show
   end
 
+  def json_upload
+    binding.pry
+    @upload = Upload.create(params[:upload][:upload])
+  end
+
   # GET /uploads/new
   def new
     @upload = current_user.uploads.build

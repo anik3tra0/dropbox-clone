@@ -20,6 +20,9 @@ gem 'rails-assets-tether', '>= 1.1.0', source: 'https://rails-assets.org'
 gem 'font-awesome-rails'
 gem 'devise-bootstrap-views'
 gem 'acts_as_tree'
+gem 'pry-rails'
+# gem 'delayed_job_active_record'
+# gem 'daemons'
 
 group :development, :test do
   gem 'byebug'
