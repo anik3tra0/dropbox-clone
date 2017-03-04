@@ -1,5 +1,5 @@
 class FoldersController < ApplicationController
-  before_action :set_folder, only: [:show, :edit, :update, :destroy]
+  before_action :set_folder, only: [:show, :update, :destroy]
 
   # GET /folders
   # GET /folders.json
@@ -28,6 +28,7 @@ class FoldersController < ApplicationController
 
   # GET /folders/1/edit
   def edit
+    @folder = current_user.folders.find(params[:folder_id])
     @current_folder = @folder.parent
   end
 
@@ -51,14 +52,15 @@ class FoldersController < ApplicationController
   # PATCH/PUT /folders/1
   # PATCH/PUT /folders/1.json
   def update
-    respond_to do |format|
-      if @folder.update(folder_params)
-        format.html { redirect_to @folder, notice: 'Folder was successfully updated.' }
-        format.json { render :show, status: :ok, location: @folder }
+    if @folder.update(folder_params)
+      flash[:notice] = "Successfully Updated Folder Name."
+      if @folder.parent #checking if we have a parent folder on this one
+        redirect_to browse_path(@folder.parent)  #then we redirect to the parent folder
       else
-        format.html { render :edit }
-        format.json { render json: @folder.errors, status: :unprocessable_entity }
+        redirect_to root_url #if not, redirect back to home page
       end
+    else
+      render 'edit'
     end
   end
 
