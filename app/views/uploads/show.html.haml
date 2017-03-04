@@ -1,0 +1,9 @@
+= image_tag @upload.upload_url, class: 'rounded mx-auto d-block'
+%br/
+%p.text-center= @upload.file_name
+%p
+  %strong Uploaded By:
+  = @upload.user.name || @upload.user.email
+= link_to 'Edit', edit_upload_path(@upload)
+|
+= link_to 'Back', uploads_path

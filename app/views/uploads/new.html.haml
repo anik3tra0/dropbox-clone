@@ -1,0 +1,7 @@
+= render 'home/breadcrumbs'
+= render 'form'
+%p
+  - if @upload.folder
+    = link_to "Back to #{@upload.folder.name} Folder", browse_path(@upload.folder), class: 'btn btn-secondary btn-xs'
+  - else
+    = link_to "Back", root_url, class: 'btn btn-secondary btn-xs'

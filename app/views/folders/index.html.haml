@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Listing Folders
+%table
+  %thead
+    %tr
+      %th Name
+      %th Parent
+      %th User
+      %th{:colspan => "3"}
+  %tbody
+    - @folders.each do |folder|
+      %tr
+        %td= folder.name
+        %td= folder.parent_id
+        %td= folder.user_id
+        %td= link_to 'Show', folder
+        %td= link_to 'Edit', edit_folder_path(folder)
+        %td= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Folder', new_folder_path
