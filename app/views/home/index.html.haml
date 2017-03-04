@@ -1,0 +1,48 @@
+- unless user_signed_in?
+  %h1 Welcome to ShareBox
+  %p File sharing web application you can't ignore.
+- else
+  #menu
+    %ul#top_menu
+      - if @current_folder
+        %li= link_to "Upload", new_sub_file_path(@current_folder)
+        %li= link_to "New Folder", new_sub_folder_path(@current_folder)
+      - else
+        %li= link_to "Upload", new_upload_path
+        %li= link_to "New Folder", new_folder_path
+  = render 'breadcrumbs'
+  .asset_list_header
+    .file_name_header File Name
+    .file_size_header Size
+    .file_last_updated_header Modified
+  .asset_list
+    / Listing Folders
+    - @folders.each do |folder|
+      .asset_details.folder
+        .file_name
+          %i.fa.fa-folder-o{"aria-hidden" => "true"}
+          = link_to folder.name, browse_path(folder)
+        .file_size -
+        .file_last_updated -
+        .actions
+          .share
+            = link_to "Share"
+          .rename
+            = link_to "Rename", rename_folder_path(folder)
+          .delete
+            = link_to "Delete", folder, data: {confirm: 'Are you sure to delete the folder and all of its contents?'}, method: :delete
+    / Listing Files
+    - @uploads.each do |upload|
+      .asset_details.file
+        .file_name
+          %i.fa.fa-file-o{"aria-hidden" => "true"}
+          = link_to upload.file_name, upload_path(upload)
+        .file_size= number_to_human_size(upload.upload.metadata["size"])
+        .file_last_updated
+          = time_ago_in_words(upload.updated_at)
+          ago
+        .actions
+          .download
+            = link_to "Download", upload.upload_url, download: upload.upload_url
+          .delete
+            = link_to "Delete", upload, data: {confirm: 'Are you sure?'}, method: :delete

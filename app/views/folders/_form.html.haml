@@ -1,0 +1,19 @@
+= form_for(@folder) do |f|
+  - if @folder.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@folder.errors.count, "error")
+        prohibited this folder from being saved:
+      %ul
+        - @folder.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.label :name
+    %br/
+    = f.text_field :name, class: 'form-control', autofocus: true
+  = f.hidden_field :parent_id
+  .form-group
+    - if @folder.new_record?
+      = f.button 'Create Folder', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating Folder..."}
+    - else
+      = f.button 'Rename Folder', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Renaming Folder..."}

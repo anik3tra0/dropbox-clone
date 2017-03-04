@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title
+      Dropbox | #{content_for?(:title) ? yield(:title) : "File-sharing web app"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag :modernizr
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = flash_messages if show_layout_flash?
+    .header_wrapper
+      .logo
+        = link_to root_path do
+          %i.fa.fa-dropbox{"aria-hidden" => "true"}
+          DropBox
+      #login_user_status
+        - if user_signed_in?
+          = current_user.email
+          |
+          \#{link_to "Sign out", destroy_user_session_path, method: :delete}
+        - else
+          %em Not Signed in.
+          = link_to 'Sign in', new_user_session_path
+          or
+          \#{link_to 'Sign up', new_user_registration_path}
+    .container
+      = yield

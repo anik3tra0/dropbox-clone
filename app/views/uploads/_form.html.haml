@@ -1,0 +1,20 @@
+.panel.panel-default.devise-bs
+  .panel-heading
+    %h4 Upload Your Files
+  .panel-body
+    = form_for(@upload, html: { role: 'form', multipart: true }) do |f|
+      - if @upload.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@upload.errors.count, "error")
+            prohibited this upload from being saved:
+          %ul
+            - @upload.errors.full_messages.each do |message|
+              %li= message
+      .form-group
+        = f.hidden_field :user_id, value: @current_user.id
+        = f.hidden_field :folder_id
+        = image_tag f.object.upload_url, class: 'rounded mx-auto d-block' if f.object.upload_url
+        = f.file_field :upload, class: 'form-control'
+      .form-group
+        = f.button 'Upload', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."}

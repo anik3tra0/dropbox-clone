@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.7.1'
+gem 'rails', '5.0.1'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -20,6 +20,8 @@ gem 'rails-assets-tether', '>= 1.1.0', source: 'https://rails-assets.org'
 gem 'font-awesome-rails'
 gem 'devise-bootstrap-views'
 gem 'acts_as_tree'
+gem 'haml'
+gem 'haml-rails'
 
 group :development, :test do
   gem 'byebug'

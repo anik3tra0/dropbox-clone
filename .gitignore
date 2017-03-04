@@ -15,3 +15,5 @@
 /config/database.yml
 /config/secrets.yml
 /assets/stylesheets/scaffold.scss
+/.idea/*
+.idea/*

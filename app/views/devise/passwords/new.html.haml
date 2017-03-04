@@ -1,0 +1,11 @@
+= bootstrap_devise_error_messages!
+.panel.panel-default.devise-bs
+  .panel-heading
+    %h4= t('.forgot_your_password', default: 'Forgot your password?')
+  .panel-body
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: "form" }) do |f|
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, class: 'form-control'
+      = f.button 'Send Me Reset Password Instructions', class: 'btn btn-primary btn-lg', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating User..."}
+= render 'devise/shared/links'

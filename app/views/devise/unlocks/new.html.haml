@@ -1,0 +1,11 @@
+= bootstrap_devise_error_messages!
+.panel.panel-default.devise-bs
+  .panel-heading
+    %h4= t('.resend_unlock_instructions', default: 'Resend unlock instructions')
+  .panel-body
+    = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post, html: { role: "form" } }) do |f|
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, class: 'form-control'
+      = f.button 'Resend Unlock Instructions', class: 'btn btn-primary', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Sending..."}
+= render 'devise/shared/links'
