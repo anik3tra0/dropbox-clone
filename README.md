@@ -9,3 +9,7 @@
 5. Uploading Files to a Folder
 6. Configured AWS-S3 Bucket, CORS, Policies, IAM
 7. How to upload file to S3
+
+### Contributors
+[@hackodezo](https://github.com/hackodezo)
+[@anees715](https://github.com/anees715)
